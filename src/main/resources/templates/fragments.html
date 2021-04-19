@@ -10,4 +10,21 @@
         <title th:text="${title}"></title>
         <link rel="stylesheet" th:href="@{/css/luigi.css}">
     </head>
-</div>
+    <table th:fragment="pizzaTabel(pizzas)" xmlns:th="http://www.thymeleaf.org">
+        <thead>
+        <tr>
+            <th>Naam</th>
+            <th>Prijs</th>
+            <th>Pikant</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="pizza:${pizzas}" th:object="${pizza}">
+            <td><a th:text="*{naam}" th:href="@{/pizzas/{id}(id=*{id})}"></a></td>
+
+            <td th:text="*{prijs}"></td>
+            <td><span th:if="*{pikant}">pikant</span></td>
+        </tr>
+        </tbody>
+    </table>
+</div> 
