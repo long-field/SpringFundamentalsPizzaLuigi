@@ -1,0 +1,7 @@
+<th:block th:if="${prijs}">
+    <h2>Pizzas van
+        <th:block th:text="${prijs}"></th:block>
+        €:
+    </h2>
+    <table th:replace="fragments::pizzaTabel(pizzas=${pizzas})"></table>
+</th:block>
